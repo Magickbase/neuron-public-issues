@@ -1,33 +1,46 @@
 # CKB General Component for WalletConnect
 
-## General Component for Wallet Side
+## 1 General Component for Wallet Side
 
 A general component is provided for WalletConnect on the side of third party wallet.
 
-### Related isssues
+### 1.1 Connecting flowchart
 
-
-### Connecting flowchart
 
 > Scanning QR code is the most used and also recommended for users to connect to dApp with your wallet. We also offer a way to connect by pasting the WalletConnect code which could be used for testing. [UI for Connecting Flowchart](https://www.figma.com/file/6XNoimRDbFTTNm016rbIdU/Magickbase?type=design&node-id=16072-38648&t=rF3mLzNYeaveGD6Q-0)
 
-#### UI Sketch
+#### 1.1.1 Corresponding functions and Labels
+All the labels and functions which are used to construct the the prototype are listed if you'd like to integrate them into your app in your own way.
 
-![UI图](pic/2023-05-30-09-20-22.png)
+|Flow|Name|Type|Requirement Levels|Note|
+| -- | -- | -- | -- | -- |
+|Connecting flow|Scan WalletConnect QR code|Function|MUST|--|
+| Connecting flow | Connect by WalletConnect-code | Function | SHOULD NOT | Supposed to be only used for testing |
+| Connecting flow | link | Label | MUST | The URL of the dapp |
+| Connecting flow | Network | Label | MUST | The network of current CKB blockchain |
+| Connecting flow | Account | Label | MUST | The account user is using on wallet. |
+| Connecting flow | dApp request auth | Label | MUST | This means the lock method for user address sets that dapp would like to get access to. |
+| Connecting flow | Disconnect | Function | MUST | -- |
 
-#### Status1: Unconnected
+![picture 15](pic/94530b52afa6429307f833788acdeafac4ac9f7a47b5ef3f4d036450ac59c339.png)  
 
-While the dapp is unconnected with the wallet, users can click on the button below to scan QR code on the dapp side in order to connect the dapp.
 
-![UnconnectStatus](pic/2023-05-30-08-19-27.png)
 
-#### Status2: Connecting
+#### 1.1.2 Status1: Unconnected
 
-After clicking the scan button, and if the QR code is correct then the dapp and wallet are trying to communicate following the protocol. If the QR code is not in correct format, corresponding messages will be popped up.
+While the dapp is unconnected with the wallet, users can use scan WalletConnect QR code function in order to connect the dapp.
 
-![ConnectingStatus](pic/2023-05-30-08-22-37.png)
+![picture 13](pic/48847073e04b228469105ff5be086e6d2f4fe1e95aa511036bd0b30d3d253762.png)  
 
-#### Status3: Connect Request
+
+#### 1.1.3 Status2: Connecting
+
+To do so, users are always supposed to click a scan button, and if the QR code is correct then the dapp and wallet are trying to communicate following the protocol. If the QR code is not in correct format, corresponding messages will be popped up.
+
+![picture 14](pic/49c0c0fa7f44791fce1d00a4b952daf8f21b2375c0670e70667625fcd698552e.png)  
+
+
+#### 1.1.4 Status3: Connect Request
 
 Once the WalletConnection information fecthes back, the wallet shows the connection request information, including the dapp name, its url, network, Account and Auth.
 
@@ -39,35 +52,53 @@ To cancel this request, just press the Reject button.
 
 ![ConnectRequest](pic/2023-05-30-08-42-31.png)
 
-#### Status4: Connectting Information
+#### 1.1.5 Status4: Connectting Information
 
 After the connection is established, the dapp will maintain a persistent connection with the wallet. The relevant connection information, the confirmed information from the previous step, will still be displayed here. Users can disconnect from the dapp at any time.
 
 ![ConnecttingInformation](pic/2023-05-30-08-41-25.png)
 
-### Signing Tx flowchart
-![picture 1](pic/967d539ec2b15727f459b9e33a70d0630de6a63f58e57e93ffe197de29380c01.png)  
+### 1.2 Signing Tx flowchart
+
+#### 1.2.1 Corresponding functions and Labels
+|Flow|Name|Type|Requirement Levels|Note|
+| -- | -- | -- | -- | -- |
+| Send transaction | Payment method | Label | SHOULD | Currently, the CKB transactions are all TRANSFER. |
+| Send transaction | To Address List | Label | MUST | -- |
+| Send transaction | Fee Rate | Label | MUST | -- |
+| Send transaction | Description | Label | MUST | -- |
+| Send transaction | Locktime | Label | MUST | -- |
+| Send transaction | Recieve Amount for individual address | Label | MUST | This refers to the amounts that every individual address will receive |
+| Send transaction | Transaction Info Modify | Function | MUST | Users are able to modify or adjust some data in the transaction like Fee Rate |
+| Send transaction | Transaction Data for individual address | Label | MUST | -- |
+| Send transaction | Witness for individual address | Label | MUST | -- |
+| Send transaction | Decode Data for individual address | Function | SHOULD | The individual data could be decoded for easier reading, however, different sources have been given for users/wallet to choose. |
+
+
 When dApp initializes a transaction, this component will pop up/ show.
 [UI for Signing Tx flowchart](https://www.figma.com/file/6XNoimRDbFTTNm016rbIdU/Magickbase?type=design&node-id=16536-38593)
-#### To confirm/reject a transaction from dapp
+
+#### 1.2.2 To confirm/reject a transaction from dapp
 
 - Normally, if the user want sign the transaction by simply click the NEXT btn then click CONFIRM btn.
-![picture 2](pic/f1d509997ae20bdb51032484bb33e5b704acdcef581fd53c7280b66747f5a54b.png)  
+![picture 6](pic/23e6295e43fe3438469a801e02511285524c90e09fc6a72c1eac1c54b93a3659.png)  
+
 
 - To reject or cancel this transaction , you can click REJECT Btn
 on the first step.
 
 
-#### To modify the transaction information
+#### 1.2.3 To modify the transaction information
 
-- Click the pencil like icon
-![picture 3](pic/dde9d7d213ce52ce6b1f9febcfc2585cc743ff7ac0d0938cbcd64de595092660.png)  
+- Click the modify icon
+![picture 9](pic/1f89dee53485fa9914341c9421b51588f81999f525a6dcc7821f22d1ab5865e9.png)  
+
 
 - Then modify information in corresponding text field, and click NEXT to continue.
 
-#### Further examine the receiving address and its detailed data
+#### 1.2.4 Further examine the receiving address and its detailed data
 
-- Click the arrow next to the address. The Data and Witness will display(elaborately speaking, these details will move upwards)
-![picture 4](pic/70d8140d96601991d8aa2632fc65d0c2a1eccef17ed02505fe50b9adade86115.png)  
-- In the UI demo, click this arrow, users can view all the receiving addresses, then view the data and witness the one you want by click the arrow next to the address on list.
-![picture 5](pic/095d5fa9970726f93dc8265cf2eb24fad2f908788456ad50ba6aef20558c5ad7.png)  
+- Go to the individual address detail pages. 
+![picture 11](pic/5c000b5c7cdbbc16d8653dfae8a15a3f113f77477eee070c0bec285066637291.png)  
+
+- To decode the Data and Withness with data of different source.
