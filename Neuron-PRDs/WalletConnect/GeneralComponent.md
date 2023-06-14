@@ -109,7 +109,7 @@ on the first step.
 #### 1.3.3 To modify the transaction information
 
 - Click the modify icon
-![picture 20](pic/1ce686778c2f1b2369c8061eeeb1580e52e7c5e8c24082c7465e6a64d8716357.png)  
+![picture 24](pic/00bc84a1bbd7e7bf4250cf73cf1c9b68104bf9d97296910bffd2adfe92b96c1a.png)  
 
 
 - Then modify information in corresponding text field, and continue.
@@ -117,7 +117,7 @@ on the first step.
 #### 1.3.4 Further examine the receiving address and its detailed data
 
 - Check more addresses and go to the individual address detail pages. 
-![picture 11](pic/5c000b5c7cdbbc16d8653dfae8a15a3f113f77477eee070c0bec285066637291.png)  
+![picture 25](pic/c3648acc2c75e30a16dd9d169b60b626614acd955ef4708e59a4df52c4ac2d40.png)  
 
 - To decode the Data and Withness with data of different source.
 
