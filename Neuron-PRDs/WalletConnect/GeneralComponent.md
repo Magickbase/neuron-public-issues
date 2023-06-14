@@ -102,3 +102,11 @@ on the first step.
 ![picture 11](pic/5c000b5c7cdbbc16d8653dfae8a15a3f113f77477eee070c0bec285066637291.png)  
 
 - To decode the Data and Withness with data of different source.
+
+### 1.3 While wallet is offline
+
+When the wallet is offline, and the DAPP wants to generate and use multiple wallet addresses. 
+
+At this point, the user can choose to either connect the wallet to the blockchain network or authorize the wallet to generate addresses.
+
+![picture 18](pic/50abf7db993b5d53336d6035584e9cc1a05af8ace4ee0a241b7ae6f5b2519bd9.png)  
