@@ -127,4 +127,12 @@ When the wallet is offline, and the dapp wants to generate and use multiple wall
 
 At this point, the user can choose to either connect the wallet to the blockchain network or authorize the wallet to generate addresses.
 
-![picture 18](pic/50abf7db993b5d53336d6035584e9cc1a05af8ace4ee0a241b7ae6f5b2519bd9.png)  
+|Flow|Name|Type|Requirement Levels|Note|
+| -- | -- | -- | -- | -- |
+| Offline usage | link | Label | MUST | The URL of the dapp |
+| Offline usage | Network | Label | MUST | The network that dapp wants the user to sign on |
+| Offline usage | Number | Label | MUST | The nember of addresses that the dapp wants to generate|
+| Offline usage | Description | Label | MUST | The description why the dapp wants to generate |
+
+![picture 26](pic/b715770fd1cdf0d619d97e40aef34eb8844ce852c97142a7d24e05dd70657f0e.png)  
+
