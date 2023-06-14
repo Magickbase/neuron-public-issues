@@ -7,7 +7,7 @@ A general component is provided for WalletConnect on the side of third party wal
 ### 1.1 Connecting flowchart
 
 
-> Scanning QR code is the most used and also recommended for users to connect to dApp with your wallet. We also offer a way to connect by pasting the WalletConnect code which could be used for testing. [UI for Connecting Flowchart](https://www.figma.com/file/6XNoimRDbFTTNm016rbIdU/Magickbase?type=design&node-id=16072-38648&t=rF3mLzNYeaveGD6Q-0)
+> Scanning QR code is the most used and also recommended for users to connect to dapp with your wallet. We also offer a way to connect by pasting the WalletConnect code which could be used for testing. [UI for Connecting Flowchart](https://www.figma.com/file/6XNoimRDbFTTNm016rbIdU/Magickbase?type=design&node-id=16072-38648&t=rF3mLzNYeaveGD6Q-0)
 
 #### 1.1.1 Corresponding functions and Labels
 All the labels and functions which are used to construct the the prototype are listed if you'd like to integrate them into your app in your own way.
@@ -19,10 +19,10 @@ All the labels and functions which are used to construct the the prototype are l
 | Connecting flow | link | Label | MUST | The URL of the dapp |
 | Connecting flow | Network | Label | MUST | The network of current CKB blockchain |
 | Connecting flow | Account | Label | MUST | The account user is using on wallet. |
-| Connecting flow | dApp request auth | Label | MUST | This means the lock method for user address sets that dapp would like to get access to. |
+| Connecting flow | dapp request auth | Label | MUST | This means the lock method for user address sets that dapp would like to get access to. |
 | Connecting flow | Disconnect | Function | MUST | -- |
 
-![picture 15](pic/94530b52afa6429307f833788acdeafac4ac9f7a47b5ef3f4d036450ac59c339.png)  
+![picture 19](pic/e2a5e75d21dbe79380ac1e27264665cde5538d82ad866eab0d7b58640eeb2128.png)  
 
 
 
@@ -46,7 +46,7 @@ Once the WalletConnection information fecthes back, the wallet shows the connect
 
 - The network refers to the CKB network to which the dapp is going to connect.
 - The Account refers to the CKB wallet account that the user is going to use.
-- The Auth refers to the lock method for user addresses. Typically, a user's addresses can be divided into different adress sets based on the lock method they use, and here various classification methods are provided. Dapps can request the specific address sets they need, and users can choose to revoke authorization for certain address sets.
+- The Auth refers to the lock method for user addresses. Typically, a user's addresses can be divided into different adress sets based on the lock method they use, and here various classification methods are provided. dapps can request the specific address sets they need, and users can choose to revoke authorization for certain address sets.
 
 To cancel this request, just press the Reject button.
 
@@ -58,11 +58,29 @@ After the connection is established, the dapp will maintain a persistent connect
 
 ![ConnecttingInformation](pic/2023-05-30-08-41-25.png)
 
-### 1.2 Signing Tx flowchart
+### 1.2 Signing A Message
+When a dapp requires the user to perform a signature operation, it can be done through a signature information flow.
 
-#### 1.2.1 Corresponding functions and Labels
 |Flow|Name|Type|Requirement Levels|Note|
 | -- | -- | -- | -- | -- |
+| Signing A Message | link | Label | MUST | The URL of the dapp |
+| Signing A Message | Network | Label | MUST | The network that dapp wants the user to sign on |
+| Signing A Message | Message | Label | MUST | The message that dapp wants the user to sign with|
+
+Based on the Connected state, the dapp will send a signature request to the wallet. Users can choose to sign or not sign the request on the wallet.
+
+![picture 21](pic/96aee7deb483263acd18b2485f54ca69f802fd14d86bcc7bf86e33d1d9b09f62.png)  
+
+Users should be familiar with, understand, and trust the content of their signature before proceeding.
+
+
+### 1.3 Signing Tx flowchart
+
+#### 1.3.1 Corresponding functions and Labels
+|Flow|Name|Type|Requirement Levels|Note|
+| -- | -- | -- | -- | -- |
+| Send transaction | link | Label | MUST | The URL of the dapp |
+| Send transaction | Network | Label | MUST | The network that dapp wants the user to sign on |
 | Send transaction | Payment method | Label | SHOULD | Currently, the CKB transactions are all TRANSFER. |
 | Send transaction | To Address List | Label | MUST | -- |
 | Send transaction | Fee Rate | Label | MUST | -- |
@@ -73,39 +91,39 @@ After the connection is established, the dapp will maintain a persistent connect
 | Send transaction | Transaction Data for individual address | Label | MUST | -- |
 | Send transaction | Witness for individual address | Label | MUST | -- |
 | Send transaction | Decode Data for individual address | Function | SHOULD | The individual data could be decoded for easier reading, however, different sources have been given for users/wallet to choose. |
+| Send transaction | Transaction Raw Data  | Label | SHOULD | Transaction Input will be displayed for professional users or any advanced usage. Through the transaction raw data, users can understand the inputs and outputs associated with this transaction.|
 
-
-When dApp initializes a transaction, this component will pop up/ show.
+When dapp initializes a transaction, this component will pop up/ show.
 [UI for Signing Tx flowchart](https://www.figma.com/file/6XNoimRDbFTTNm016rbIdU/Magickbase?type=design&node-id=16536-38593)
 
-#### 1.2.2 To confirm/reject a transaction from dapp
+#### 1.3.2 To confirm/reject a transaction from dapp
 
 - Normally, if the user want sign the transaction by simply click the NEXT btn then click CONFIRM btn.
-![picture 6](pic/23e6295e43fe3438469a801e02511285524c90e09fc6a72c1eac1c54b93a3659.png)  
+![picture 22](pic/97ab3debd332737cd47bb08d6a3c6e84a902c3db546ccbb13372435f68ca8bdb.png)  
 
 
 - To reject or cancel this transaction , you can click REJECT Btn
 on the first step.
 
 
-#### 1.2.3 To modify the transaction information
+#### 1.3.3 To modify the transaction information
 
 - Click the modify icon
-![picture 9](pic/1f89dee53485fa9914341c9421b51588f81999f525a6dcc7821f22d1ab5865e9.png)  
+![picture 20](pic/1ce686778c2f1b2369c8061eeeb1580e52e7c5e8c24082c7465e6a64d8716357.png)  
 
 
-- Then modify information in corresponding text field, and click NEXT to continue.
+- Then modify information in corresponding text field, and continue.
 
-#### 1.2.4 Further examine the receiving address and its detailed data
+#### 1.3.4 Further examine the receiving address and its detailed data
 
-- Go to the individual address detail pages. 
+- Check more addresses and go to the individual address detail pages. 
 ![picture 11](pic/5c000b5c7cdbbc16d8653dfae8a15a3f113f77477eee070c0bec285066637291.png)  
 
 - To decode the Data and Withness with data of different source.
 
-### 1.3 While wallet is offline
+### 1.4 While wallet is offline
 
-When the wallet is offline, and the DAPP wants to generate and use multiple wallet addresses. 
+When the wallet is offline, and the dapp wants to generate and use multiple wallet addresses. 
 
 At this point, the user can choose to either connect the wallet to the blockchain network or authorize the wallet to generate addresses.
 
