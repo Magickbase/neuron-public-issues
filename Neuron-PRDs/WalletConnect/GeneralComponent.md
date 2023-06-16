@@ -83,9 +83,9 @@ Users should be familiar with, understand, and trust the content of their signat
 | Send transaction | Network | Label | MUST | The network that dapp wants the user to sign on |
 | Send transaction | Payment method | Label | SHOULD | Currently, the CKB transactions are all TRANSFER. |
 | Send transaction | To Address List | Label | MUST | -- |
-| Send transaction | Fee Rate | Label | MUST | -- |
+| Send transaction | Fee or Fee Rate | Label | MUST | -- |
 | Send transaction | Description | Label | MUST | -- |
-| Send transaction | Locktime | Label | MUST | -- |
+| Send transaction | Locktime | Label | OPTIONAL | -- |
 | Send transaction | Recieve Amount for individual address | Label | MUST | This refers to the amounts that every individual address will receive |
 | Send transaction | Transaction Info Modify | Function | MUST | Users are able to modify or adjust some data in the transaction like Fee Rate |
 | Send transaction | Transaction Data for individual address | Label | MUST | -- |
