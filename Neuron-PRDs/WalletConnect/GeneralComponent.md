@@ -19,11 +19,11 @@ All the labels and functions which are used to construct the the prototype are l
 | Connecting flow | link | Label | MUST | The URL of the dapp |
 | Connecting flow | Network | Label | MUST | The network of current CKB blockchain |
 | Connecting flow | Account | Label | MUST | The account user is using on wallet. |
-| Connecting flow | dapp request auth | Label | MUST | This means the lock method for user address sets that dapp would like to get access to. [Why this is necessary？](/Neuron-PRDs/WalletConnect/FAQ.md)|
+| Connecting flow | Lock Hash | Label | MUST | This means the lock method for user address sets that dapp would like to get access to. [Why this is necessary？](/Neuron-PRDs/WalletConnect/FAQ.md)|
 | Connecting flow | Disconnect | Function | MUST | -- |
 
-![picture 19](pic/e2a5e75d21dbe79380ac1e27264665cde5538d82ad866eab0d7b58640eeb2128.png)  
 
+![picture 27](pic/b1be8bf81fd2c2cf40f1eb373237d4afe90149a0c178b0cfdb7d0391457f7ae4.png)  
 
 
 #### 1.1.2 Status1: Unconnected
