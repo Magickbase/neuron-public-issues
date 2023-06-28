@@ -46,7 +46,7 @@ Once the WalletConnection information fecthes back, the wallet shows the connect
 
 - The network refers to the CKB network to which the dapp is going to connect.
 - The Account refers to the CKB wallet account that the user is going to use.
-- The Auth refers to the lock method for user addresses. Typically, a user's addresses can be divided into different adress sets based on the lock method they use, and here various classification methods are provided. dapps can request the specific address sets they need, and users can choose to revoke authorization for certain address sets.
+- The Auth refers to the lock method for user addresses. Typically, a user's addresses can be divided into different adress sets based on the lock method they use, and here various classification methods are provided. dapps can request the specific address sets they need, and users can choose to revoke authorization for certain address sets. It is specified that when the method for requesting Lock Hash from Dapp side has no parameters, the Dapp requests all Lock Hashes. When the Dapp provides specific Lock Hashes, it requests the specified Lock Hashes addresses set.
 
 To cancel this request, just press the Reject button.
 
