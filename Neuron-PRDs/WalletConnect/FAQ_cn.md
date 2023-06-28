@@ -2,20 +2,24 @@
 
 ### 什么是账户（Account）
 
-对用来说，seed/master pri key 一组按照指定算法算出来的可操控的地址集合。
+对用来说，一组账户是由一组助记词或根私钥按照指定算法推算出来的地址集合。
 
 技术上来讲，一组按照指定算法算出来的地址。
-
-通过Seed加一定规则（分层确定性钱包）生成的公钥（Public Key），再加上 lock 方法，生成的一组地址，即公钥和Lock约束衍生出来的地址集合。
+通过Seed加一定规则（分层确定性钱包）生成的公钥（Public Key），再加上 lock script，生成的一组地址，即公钥和Lock Script约束衍生出来的地址集合。
 
 
 ### 什么是 Account ID
 
-账户ID特指用户助记词的第一个root的hash值。账户ID用于为用户提供区分属于一套助记词/根私钥的地址和非属于一套助记词/根私钥的地址。
+账户ID特指用户助记词的第一个root的hash值。账户ID用于为用户提供区分属于一套助记词/根私钥的地址和非此助记词/根私钥的地址，用户与区块链的交互并不直接操作根私钥。
+
+### 什么是Lock Hash？
+Lock Hash 是对 lock script 里的 code hash、lock script 里的 hash type 以及lock script 里的 argus 取的Hash值。
+
+对用户而言，从Lock Hash中并不能解读出相应的业务逻辑，因此dapp 在请求地址集合时，通常将 lock script 里的 code hash 以 dapp request Auth 这一可读字段的形式暴露给用户。而dapp request Auth <-> lock hash 的映射关系表则将在第三方平台上更新。
 
 ### 什么是交易方法（Payment method）
 
-交易方法是为了标识CKB交易中交易类型的标签。与部分基于账户模型区块链中的交易不同，CKB中的交易方法是根据用户操作的Cell的Lock Hash进行的Tag标记，这种标记是链下解析的。
+交易方法是为了标识CKB交易中交易类型的标签。与部分基于账户模型区块链中的交易不同，此处提到的交易方法是根据用户操作的Cell的Lock Hash进行的Tag标记，目前这种标记是链下解析的，为用户理解交易的差异性提供可读性帮助。
 
 ### 什么是交易的描述（Description）
 
@@ -32,14 +36,14 @@
 Locktime在CKB中是可选的，不是所有的交易都需要设置Locktime。它提供了一种灵活的方式来控制交易的执行时间，增加了CKB的功能和应用场景的多样性。
 
 ### 为什么 一笔交易中有多个to 地址？
+
 CKB的交易是基于UTXO的交易模型，在该模型中，一笔交易的输入与输出均可能有多个。
 
 同时一笔交易中，每一个输出地址都含有 “Data”和“Witness”字段。
 
-### 关于Dapp request auth 与Lock Hash的请求
-
-Lock Hash是Dapp request auth 的hash，因此是唯一确认的方法名。第三方可以通过提交PR，向协议注册新的Dapp Auth。
-
+### 关于Dapp 与Lock Hash的请求
+Lock Hash = lock script + code hash(EOA)  + argus
+其实这里只需要 lock script 的hash
 ### 关于Dapp 与Lock Hash的请求
 
 - 关于Lock Hash：
@@ -52,9 +56,9 @@ Lock Hash是Dapp request auth 的hash，因此是唯一确认的方法名。第�
 
 
 ### 热钱包与观察钱包 与 dapp 的交互规则
-> 离线钱包场景：在当前需求优先级下，我们认为热钱包连接dapp使用的场景更广；此外，出于XX考虑，dapp 直接连接离线钱包使用的场景不被考虑在此范围内。若要使用离线钱包，离线钱包应与一个热钱包搭配使用。因此，在使用离线钱包的情况下，离线钱包将被视作一个观察钱包。
+> 离线钱包场景：在当前需求优先级下，我们认为热钱包连接dapp使用的场景更广，本协议中的交互对象为“热钱包”与“dapp”，因此dapp直接连接离线钱包使用的场景不被考虑在此协议范围内。若要使用离线钱包，离线钱包应与一个热钱包搭配使用。因此，在使用离线钱包的情况下，离线钱包将被视作一个观察钱包。
 - 当钱包连接网络与dapp交互时，其交互流程见[此链接](https://github.com/Magickbase/neuron-public-issues/issues/148)
-- 当钱包用作观察钱包时，观察钱包可与dapp建立连接以获取相关数据，但无法进行转账操作。
+- 当钱包用作观察钱包时，观察钱包可与dapp建立连接以获取相关数据。
 
 
 ### 为什么Lock Hash(dapp Auth)字段是必需的？
