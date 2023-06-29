@@ -2,22 +2,56 @@
 
 ### What is Account
 
-对用来说，seed/master pri key 一组按照指定算法算出来的可操控的地址集合。
+For users, an account is a collection of addresses derived from a set of mnemonics or root private keys according to a specified algorithm.
 
-技术上来讲，一组按照指定算法算出来的地址
-
-通过Seed +一定规则（hd钱包）生成的pub key + lock一组地址
-pub key+lock 约束衍生的地址
+Technically, it refers to a set of addresses derived using a specified algorithm. It involves generating a public key (Public Key) by adding a seed with certain rules (hierarchical deterministic wallet), and then combining it with a lock script to create a set of addresses. These addresses are derived based on the combination of the public key and lock script constraints.
 
 ### What is Account ID
 
-第一个root的hash
+Account ID specifically refers to the hash value of the first root of the user's mnemonic words. Account ID is used to distinguish addresses belonging to a set of mnemonic words/root private keys from addresses that do not belong to them. User interactions with the blockchain do not directly involve the Account or Account ID.
+
+### What is Lock Hash？
+
+Lock Hash is the hash value derived from the code hash in the lock script, the hash type in the lock script, and the arguments in the lock script.
+
+For users, the Lock Hash does not reveal the corresponding business logic. Therefore, when a dapp requests a set of addresses, it typically exposes the code hash in the lock script as a readable field in the Dapp Request Auth. The mapping table between Dapp Request Auth and Lock Hash will be updated on a third-party platform.
 
 ### What is Payment method
+A Payment Method is used to identify the label of a transaction type in the CKB transaction. Unlike transactions in some account-based blockchain models, the mentioned payment method is a tag based on the Lock Hash of the Cell transfered by the user. Currently, this tag is resolved off-chain to provide readability for users to understand transaction differences.
 
-### What is Description
+### What is a Description
+
+In CKB, the Description of a transaction refers to the field that contains arbitrary text within the transaction. It provides descriptive information about the transaction's purpose or other related details. The description field is optional and can be used to provide additional information about the transaction, such as its purpose, notes, or labels.
 
 ### What is Locktime
+
+In CKB, Locktime refers to the locking timestamp of a transaction. It is a mechanism used to control when a transaction can be confirmed and executed. Each transaction can set a Locktime value, which can be an absolute timestamp or a value relative to the current block height.
+
+When a transaction is created, it may be assigned a Locktime to specify that the transaction cannot be confirmed and executed until a certain time or block height in the future. This can be used to implement specific transaction logic, such as delayed payment or conditional payments.
+
+Until the specified Locktime is reached, the transaction is considered unspendable and will not be included in blocks by miners. Once the specified Locktime is reached, the transaction can be confirmed and executed.
+
+Locktime is optional in CKB, and not all transactions need to set a Locktime. It provides a flexible way to control the execution time of transactions, increasing the functionality and diversity of CKB's applications.
+
+### Why are there multiple "to" addresses in a transaction?
+CKB transactions are based on the UTXO (Unspent Transaction Output) model, where a transaction can have multiple inputs and outputs.
+
+In a transaction, each output address contains the "Data" and "Witness" fields.
+
+### About Dapp and Lock Hash Requests
+- About Lock Hash:
+    When a Dapp requests the Lock Hash method without any parameters, the Dapp defaults to requesting all Lock Hashes. When the parameters include a Lock Hash, the Dapp requests the specified Lock Hash.
+
+- About error responses:
+    - Panic when the user declines.
+    - Panic immediately if the wallet does not support the requested DappAuth from the Dapp.
+
+### Interaction rules between Hot Wallets, Observer Wallets, and Dapps
+
+> Offline Wallet Case: Considering the current priority of demands, we believe that the case of hot wallets connecting to Dapps is more common. Therefore, the interaction entities in this protocol are "hot wallets" and "Dapps". The case where Dapps directly connect to offline wallets is not considered within the scope of this protocol. If you want to use an offline wallet, it should be used in conjunction with a hot wallet. Therefore, when using an offline wallet, it will be treated as an observe wallet.
+
+- When a wallet connects to the network and interacts with a Dapp, the interaction process can be found at [this link](https://github.com/Magickbase/neuron-public-issues/issues/148).
+- When a wallet is used as an observe wallet, it can establish a connection with a Dapp to retrieve relevant data.
 
 ### Why is the dapp Auth field necessary? 
 

@@ -10,7 +10,7 @@
 
 ### 什么是 Account ID
 
-账户ID特指用户助记词的第一个root的hash值。账户ID用于为用户提供区分属于一套助记词/根私钥的地址和非此助记词/根私钥的地址，用户与区块链的交互并不直接操作根私钥。
+账户ID特指用户助记词的第一个root的hash值。账户ID用于为用户提供区分属于一套助记词/根私钥的地址和非此助记词/根私钥的地址，用户与区块链的交互并不直接操作账户及账户ID。
 
 ### 什么是Lock Hash？
 Lock Hash 是对 lock script 里的 code hash、lock script 里的 hash type 以及lock script 里的 argus 取的Hash值。
@@ -41,9 +41,6 @@ CKB的交易是基于UTXO的交易模型，在该模型中，一笔交易的输�
 
 同时一笔交易中，每一个输出地址都含有 “Data”和“Witness”字段。
 
-### 关于Dapp 与Lock Hash的请求
-Lock Hash = lock script + code hash(EOA)  + argus
-其实这里只需要 lock script 的hash
 ### 关于Dapp 与Lock Hash的请求
 
 - 关于Lock Hash：
