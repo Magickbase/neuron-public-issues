@@ -83,6 +83,7 @@ Users should be familiar with, understand, and trust the content of their signat
 | Send transaction | Network | Label | MUST | The network that dapp wants the user to sign on |
 | Send transaction | Payment method | Label | SHOULD | Currently, the CKB transactions are all TRANSFER. |
 | Send transaction | To Address List | Label | MUST | -- |
+| Send transaction | Asset Amounts | Label | MUST | The total Amount of all Assets involved in this transaction|
 | Send transaction | Fee or Fee Rate | Label | MUST | -- |
 | Send transaction | Description | Label | MUST | -- |
 | Send transaction | Locktime | Label | OPTIONAL | -- |
@@ -99,7 +100,7 @@ When dapp initializes a transaction, this component will pop up/ show.
 #### 1.3.2 To confirm/reject a transaction from dapp
 
 - Normally, if the user want sign the transaction by simply click the NEXT btn then click CONFIRM btn.
-![picture 22](pic/97ab3debd332737cd47bb08d6a3c6e84a902c3db546ccbb13372435f68ca8bdb.png)  
+![picture 27](pic/b9d046f43f5dd496f333e9fdf364993f7d81f4389a9c7c7e8957f08d289e5741.png)  
 
 
 - To reject or cancel this transaction , you can click REJECT Btn
@@ -117,7 +118,7 @@ on the first step.
 #### 1.3.4 Further examine the receiving address and its detailed data
 
 - Check more addresses and go to the individual address detail pages. 
-![picture 25](pic/c3648acc2c75e30a16dd9d169b60b626614acd955ef4708e59a4df52c4ac2d40.png)  
+![picture 28](pic/1f9883d5905833b959fc6c385823147b7ede2adb43b06fda164c8325e92bcc21.png)  
 
 - To decode the Data and Withness with data of different source.
 
