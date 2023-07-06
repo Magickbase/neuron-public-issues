@@ -124,16 +124,13 @@ on the first step.
 
 ### 1.4 While wallet is offline
 
-When the wallet is offline, and the dapp wants to generate and use multiple wallet addresses. 
+Offline Wallet Case: Considering the current priority of demands, we believe that the case of hot wallets connecting to Dapps is more common. Therefore, the interaction entities in this protocol are "hot wallets" and "Dapps". See more at [FAQ](/Neuron-PRDs/WalletConnect/FAQ_en.md).
 
-At this point, the user can choose to either connect the wallet to the blockchain network or authorize the wallet to generate addresses.
+While wallet is offline, a pop-up could be triggered to remind user to reconnect or keep offline.
 
 |Flow|Name|Type|Requirement Levels|Note|
 | -- | -- | -- | -- | -- |
 | Offline usage | link | Label | MUST | The URL of the dapp |
-| Offline usage | Network | Label | MUST | The network that dapp wants the user to sign on |
-| Offline usage | Number | Label | MUST | The nember of addresses that the dapp wants to generate|
-| Offline usage | Description | Label | MUST | The description why the dapp wants to generate |
+| Offline usage | Network Name | Label | MUST | The network that dapp wants the user to sign on |
 
-![picture 26](pic/b715770fd1cdf0d619d97e40aef34eb8844ce852c97142a7d24e05dd70657f0e.png)  
-
+![picture 30](pic/OfflineWallet.png) 
