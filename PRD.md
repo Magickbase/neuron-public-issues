@@ -1,7 +1,7 @@
-#**Neruron Wallet**
-[toc]
+# Neruron Wallet
 
-##Download & Installation
+
+## Download & Installation
 
 1.Download Address:https://github.com/nervosnetwork/neuron/releases
 2.Select the desired version (the latest version is recommended) and the matching system installer to download.
@@ -9,37 +9,37 @@
 4.Unzip or install neuron wallet.
 
 
-##Usage
+## Usage
 
-###Create or Import a wallet
+### Create or Import a wallet
 
-####Create
+#### Create
 1.Generate wallet seed
 2.Manually enter wallet seed and verify
 
-####Import
+#### Import
 
 1.Import Wallet Seeds
 2.Import from Keystore
 3.Import Harware Wallet
 
-####Wallet Account Setup
+#### Wallet Account Setup
 
 1.Name the wallet
 2.Set Password
 
-###Blocks synchronization
+### Blocks synchronization
 1.Set the node data path
 2.Set the index data path
 3.Finding predefined trusted block
 4.Automatically synchronizes block data
 
-###Overview
+### Overview
 1.Balance:Displays the full current wallet balance (needs to be synchronized to the latest block)
 2.Send&Recive:Click to make an on-chain transaction
 3.Recent activities:Display recent transaction history and details
 
-###Send&Receive
+### Send&Receive
 1.Send：Initiate on-chain transactions
 - Send to:Adding an address on the CKB chain for transactions
 - Amount:Enter the amount to be sent, optionally click MAX to enter the maximum value automatically.
@@ -59,7 +59,7 @@
 - Address Book：Displays the receiving address and change address under the current wallet, providing the ability to copy the address or balance.
 - Hardware wallet:Provides the ability to verify the address when using a hardware wallet (requires connection to the wallet)
 
-###History
+### History
 1.Search:Search for Tx hash, address, or date to find the transaction.
 2.Export:Export transaction history in csv format.
 3.Transaction List
@@ -73,12 +73,12 @@
 - Basic Information:Displays the transaction hash, block number, date, and income.
 - Inputs and outputs:Displays the input and output parameters of the transaction.
 
-###Nervos DAO
+### Nervos DAO
 1.Account Info:Displays the available account balance, locked amount, and current APC.
 2.Deposit:Click to initiate a transaction to deposit into the Nervos DAO.
 3.Deposit and completed list:Displays deposited and completed transactions for Nervos DAO.
 
-###Settings
+### Settings
 1.Wallet:Switch the current wallet account.
 2.General
 - Version:Displays the current version and offers to check for updates.
@@ -87,26 +87,26 @@
 3.Network:Select the network node used by the wallet.
 4.Data:Selects data storage paths for nodes and indexes as well as providing cache cleanup.
 
-###Experimental
+### Experimental
 
-####Customized Assets
+#### Customized Assets
 1.Synchronization：Full node mode synchronization needs to be completed before all custom assets can be displayed.
 2.Customized Asset List
 - Time:Displays the time when the asset was traded and uses this to sort the list (from late to early).
 - Asset:Displays the name of the identified asset and the unidentified displays the unknown asset.
 - Operation:Support claim, transfer, withdraw, and migrate assets as well as check transaction details.(Locked assets and unidentified assets not available for claim)
 
-####Assets Accounts
+#### Assets Accounts
 1.Search:Search for the account name, token name, or symbol.
 2.Create an asset account：Create a sUDT or CKB account to accept customized assets.
 3.Account List：Displays the custom asset accounts that have been added.
 
-###Wallet connect
+### Wallet connect
 
-###Dark Mode
+### Dark Mode
 Change the theme color of the software by clicking the top icon to switch to dark mode.
 
-###Light Client Mode
+### Light Client Mode
 Light Client Mode is a connection mode for Neuron that can be realized by connecting to the built-in CKB Light Client node through the network settings in the settings. It downloads a portion of the blockchain data to get the necessary information compared to a full node. This allows Neuron to access the CKB blockchain faster.
 
 
