@@ -34,30 +34,30 @@
 3.Finding predefined trusted block
 4.Automatically synchronizes block data
 
-### Overview
-1.Balance:Displays the full current wallet balance (needs to be synchronized to the latest block)
-2.Send&Recive:Click to make an on-chain transaction
-3.Recent activities:Display recent transaction history and details
+>To be updated
+>### Overview
+>1.Balance:Displays the full current wallet balance (needs to be synchronized to the latest block)
+>2.Send&Recive:Click to make an on-chain transaction
+>3.Recent activities:Display recent transaction history and details
+>
+>### Send&Receive
+>1.Send：Initiate on-chain transactions
+>- Send to:Adding an address on the CKB chain for transactions
+>- Amount:Enter the amount to be sent, optionally click MAX to enter the maximum value automatically.
+>- Add a address:Adding additional CKB on-chain addresses for transactions
+>- Set lock time:Set the lock time of the transaction, which may be inaccurate due to the uncertainty of the block out time.
+>- Description:Add description to this transaction
+>- Transaction Fee:Displays estimated transaction costs based on current transactions and on-chain data.
+>- Price:Select recommended rate or customized rate, default customized rate supports selection of slow/standard/fast.
+>- Submit Transaction:Submits transactions after verifying passwords and provides the ability to export transactions.
+>
+>2.Receive:Receive on-chain transfers
+>- Address QR code：Provides a QR code image of the current address and offers download and copy functions.
+>- Address：Displays the receiving address under the current wallet, with the new address selected by default to ensure user privacy and security.
+>- Toggle Address Format：Displays the full address by default and provides the ability to switch to a deprecated address format.
+>- Address Book：Displays the receiving address and change address under the current wallet, providing the ability to copy the address or balance.
+>- Hardware wallet:Provides the ability to verify the address when using a hardware wallet (requires connection to the wallet)
 
-### Send&Receive
-1.Send：Initiate on-chain transactions
-- Send to:Adding an address on the CKB chain for transactions
-- Amount:Enter the amount to be sent, optionally click MAX to enter the maximum value automatically.
-- Add a address:Adding additional CKB on-chain addresses for transactions
-- Set lock time:Set the lock time of the transaction, which may be inaccurate due to the uncertainty of the block out time.
-- Description:Add description to this transaction
-- Transaction Fee:Displays estimated transaction costs based on current transactions and on-chain data.
-- Price:Select recommended rate or customized rate, default customized rate supports selection of slow/standard/fast.
-- Submit Transaction:Submits transactions after verifying passwords and provides the ability to export transactions.
-
-
-
-2.Receive:Receive on-chain transfers
-- Address QR code：Provides a QR code image of the current address and offers download and copy functions.
-- Address：Displays the receiving address under the current wallet, with the new address selected by default to ensure user privacy and security.
-- Toggle Address Format：Displays the full address by default and provides the ability to switch to a deprecated address format.
-- Address Book：Displays the receiving address and change address under the current wallet, providing the ability to copy the address or balance.
-- Hardware wallet:Provides the ability to verify the address when using a hardware wallet (requires connection to the wallet)
 
 ### History
 1.Search:Search for Tx hash, address, or date to find the transaction.
@@ -83,8 +83,9 @@
 2.General
 - Version:Displays the current version and offers to check for updates.
 - Language:Select language, currently supports English and Chinese.
-
-3.Network:Select the network node used by the wallet.
+>To be updated
+>
+>3.Network:Select the network node used by the wallet.
 4.Data:Selects data storage paths for nodes and indexes as well as providing cache cleanup.
 
 ### Experimental
@@ -106,8 +107,9 @@
 ### Dark Mode
 Change the theme color of the software by clicking the top icon to switch to dark mode.
 
-### Light Client Mode
-Light Client Mode is a connection mode for Neuron that can be realized by connecting to the built-in CKB Light Client node through the network settings in the settings. It downloads a portion of the blockchain data to get the necessary information compared to a full node. This allows Neuron to access the CKB blockchain faster.
+>To be updated
+>### Light Client Mode
+>Light Client Mode is a connection mode for Neuron that can be realized by connecting to the built-in CKB Light Client node through the network settings in the settings. It downloads a portion of the blockchain data to >get the necessary information compared to a full node. This allows Neuron to access the CKB blockchain faster.
 
 
 
