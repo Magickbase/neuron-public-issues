@@ -30,7 +30,7 @@ Involved Namespace in this flow
     {
     ...
         "namespaces": {
-        "hathor": {
+        "author": {
             "accounts": [ "ckb:mainnet:xxxxx..." ]
             "chains": [ "ckb:mainnet" ],
             "events": [],
