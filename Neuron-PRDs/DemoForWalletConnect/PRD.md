@@ -22,54 +22,8 @@ While not log in , users will see the page like this.
 | Connecting flow | WalletConnect Option and WalletConnect QR code | Function | MUST | -- |
 | Connecting flow | Notes | Label | SHOULD | Show the user which network is requested to connect and which address sets(dApp request auth) are request in advance |
 
-Involved Namespace in this flow
----
-<!-- to do -->
-- dapp send
-    ```
-    {
-    ...
-        "namespaces": {
-        "author": {
-            "accounts": [ "ckb:mainnet:xxxxx..." ]
-            "chains": [ "ckb:mainnet" ],
-            "events": [],
-            "methods": [
-            "ckb_signTransaction"
-            ]
-        }
-        }
-    ...
-    }
-    ```
-    ```
-    
-    ckb_signTransaction{
-    "message":"XXXX",
-    "account":"XXXXXX",
-    }
-    ```
-
-    
-    ```
-
-    "timestamp":[],
-    "message":"Log domain at XXXX"
-    
-    ```
-    
-- Wallet Side
-  signTransaction with the first private key of the Account
-    ```
-    {
-        ckb_signTransaction{
-        "message":"XXXX",
-        ""
-        }
-    }
-    ```
 <!-- 问题：是否验证地址集合中所有地址属于当前用户？ -->
-<!-- 问题：无法确认同一个私钥 使用metamask登录（kecake?）的/和neuron（加密算法...）登录的是同一个用户？ -->
+<!-- 问题：同一个私钥 使用metamask登录（kecake?）的/和neuron（加密算法...）登录的需要是同一个用户吗？ （根据定义，可以不需要）-->
 <!-- 用户身份的绑定是 地址？公钥？ -->
 <!-- 唯一索引是地址？公钥？-->
 
@@ -83,8 +37,14 @@ Involved Namespace in this flow
 
 <!-- 建立连接时Account身份验证？Identity 如何设计。HD钱包如何设计？非HD钱包如何设计-->
 <!-- Case：HD登录（HD钱包的identify可以是什么），非HD登录也OK（非HD钱包的identify可以是什么）-->
-登录成功的定义：两次登录被识别为相同的身份
+<!-- 登录成功的定义：两次登录被识别为相同的身份 -->
+
+<!-- 产品层面登录成功的定义：如果用同一种（算法）钱包，同一Seed登录，被识别为相同的身份；如果用不同（算法）钱包，同一Seed登录，可以不被识别为相同的身份； -->
+<!-- 问题：同一个私钥 使用metamask登录（kecake?）的/和neuron（加密算法...）登录的需要是同一个用户吗？ （根据定义，可以不需要）-->
+
 <!-- To do: 协议层面 + UX -->
+<!-- 协议层面: -->
+<!-- UX层面:在身份定义确认后，修改对应General Component UX protocol -->
 
 ## HomePage
 
@@ -106,47 +66,12 @@ After logged in, Some account info and dapp functions will be provided to users.
 In this dapp, Connected account’s CKB will be shown to user.
 First, the dapp **define** the CKB of an account is **the total CKB amount of all addresses in the address set** provided by wallet during connection.
 
-
 ### Like Function
 By clicking the Like button, a window will pop up to ask user to confirm ,users are requested to sign a message on his CKB wallet which is connected in the previous connecting part to verify that this account belongs to him.
 
 ![pic 2](pic/LikeConfirmWindow.png)  
 
-Involved Namespace in this flow
----
-<!-- to do -->
-- dapp send
-    ```
-message:""
-    ```
-- Wallet post
-    ```
-    {
-    用。。。对message
-    }
-
-    ```
-<!-- 问题：当用户Like时，同一个私钥的身份如何被绑定，现在同一个私钥可能生成2个公钥，以至于身份不被确定 -->
-<!-- 假如是同一个私钥，有2个钱包(【曲线】R1?K1？ [HD：Path] ACP? K1?) -->
-<!-- 做identity 验证行不通 -->
-
-<!-- 用户身份的绑定是 地址？公钥？ 使用Account -->
-<!-- dapp 白名单登录（有一个地址有权限）：文章就能看 -->
-<!-- dapp 合并Cell 转账（所有地址）-->
-
 ### Donate Function
 By clicking the donation amount, a donation window will pop up to ask user to confirm ,users are requested to sign a transaction on his CKB wallet which is connected in the previous connecting part to send fixed amount CKB to a fixed address.
 
 ![pic 3](pic/DonationWindow.png)  
-
-Involved Namespace in this flow
----
-<!-- to do -->
-- dapp send
-    ```
-
-    ```
-- Wallet post
-    ```
-
-    ```
