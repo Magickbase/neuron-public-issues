@@ -96,7 +96,7 @@ After logged in, Some account info and dapp functions will be provided to users.
 | HomePage | AcountID | Function | MUST | - |
 | HomePage | Network | Label | MUST | Show the user which network is requested to connect and which address sets(dApp request auth) are request in advance |
 | HomePage | Disconnet | Function | MUST | The Disconnect function demonstrate how user initial a disconnection on the dapp side. |
-| HomePage | Asset | Label | SHOULD | This part info demonstrate how to display info of an Account, like assets of an account in this case. |
+| HomePage | Asset | Label | SHOULD NOT | This part info demonstrate how to display info of an Account, but ADDRESS should not be displayed to user due to ACCOUNT is already defined and put forward.   |
 | HomePage | Like | Function | SHOULD | The Like function in this case demonstrate how dapp request user to sign message with an Account. |
 | HomePage | Donate | Function | SHOULD | The Donate function in this case demonstrate how dapp request user to sign a transaction with an Account. |
 
