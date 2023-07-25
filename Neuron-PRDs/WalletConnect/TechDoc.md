@@ -40,8 +40,8 @@ const core = new Core({
 })
 
 Web3Wallet.init({
-	core,
-	metadata: {
+ core,
+ metadata: {
     name: 'Neuron',
     url: 'https://github.com/nervosnetwork/neuron',
     icons: [],
