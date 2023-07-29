@@ -61,8 +61,8 @@ const { uri, approval } = await signClient.connect({
   requiredNamespaces: {
     ckb: {
         chains: ["ckb:testnet"],
-        methods: ["ckb_signMessage"],
-        events: ["accountChanged"],
+        methods: ["ckb_getAddresses","ckb_signMessage","ckb_signTransaction"],
+        events: ["accountChanged","addressesChanged"],
     },
   },
   sessionProperties: {
@@ -97,13 +97,16 @@ A `session_proposal` event is received by the wallet just as soon as the connect
     "requiredNamespaces": {
       "ckb": {
         "chains": [
-          "ckb:testnet"
+          "ckb:testnet",
         ],
         "methods": [
-          "ckb_signMessage"
+          "ckb_getAddresses",
+          "ckb_signMessage",
+          "ckb_signTransaction"
         ],
         "events": [
-          "accountChanged"
+          "accountChanged",
+          "addressesChanged"
         ]
       }
     },
@@ -152,10 +155,13 @@ A `session_proposal` event is received by the wallet just as soon as the connect
         "ckb:testnet:ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqwh8z6fkne05j0emqeen59qnn8a6xkm3fs0xf9en"
       ],
       "methods": [
-        "ckb_signMessage"
+        "ckb_getAddresses",
+        "ckb_signMessage",
+        "ckb_signTransaction"
       ],
       "events": [
-        "accountChanged"
+        "accountChanged",
+        "addressesChanged"
       ]
     }
   },
@@ -167,10 +173,13 @@ A `session_proposal` event is received by the wallet just as soon as the connect
         "ckb:testnet"
       ],
       "methods": [
-        "ckb_signMessage"
+        "ckb_getAddresses",
+        "ckb_signMessage",
+        "ckb_signTransaction"
       ],
       "events": [
-        "accountChanged"
+        "accountChanged",
+        "addressesChanged"
       ]
     }
   },
