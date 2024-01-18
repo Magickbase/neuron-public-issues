@@ -56,6 +56,7 @@
 4. Window:
    - Minimize: Command/Ctrl+M
    - Close Window: Command/Ctrl+W
+   - Lock Window: Command/Ctrl+L
 5. Help:
    - Documentation: Open your browser and jump to the Neuron documentation page.
    - Nervos Website: Open your browser and jump to https://www.nervos.org.
@@ -120,23 +121,25 @@
      - Lock/Unlock: Supports lock and unlock operations on cells, but only takes effect locally. (Some types of cells are unable to perform lock/unlock operations, such as 'NervosDAO')
      - Consume: Consuming and sending the cell out in its entirety does not retain the data inside the cell.
 
-### History
-1. Search: Search for Tx hash, address, or date to find the transaction.
-2. Export: Export transaction history in CSV format.
-3. Transaction List
+>To be updated
+>### History
+>1. Search: Search for Tx hash, address, or date to find the transaction.
+>2. Export: Export transaction history in CSV format.
+>3. Transaction List
    - Type: Display the type of transaction.
-   - Amount: Displays the amount received and spent for the current transaction.
+   - Assets: Displays the amount received and spent assets for the current transaction.
+   - Balance: Displays the change in balance as a result of this transaction.
    - Time: Displays the date and time of the transaction (accurate to the second)
    - Status: Displays the on-chain status of the transaction.
    - Operation: Expand or collapse the information of the transaction.
    - View Details: Provides the ability to view transaction details in the expanded state and supports opening in an explorer.
-4. Transaction Details
+>4. Transaction Details
    - Basic Information: Displays the transaction hash, block number, date, and income.
    - Inputs and outputs: Displays the input and output parameters of the transaction.
 
 ### Nervous DAO
 1. Account Info: Displays the available account balance, locked amount, and current APC.
-2. Deposit: Click to initiate a transaction to deposit into the Nervos DAO.
+2. Deposit: Click to initiate a transaction to deposit into the Nervos DAO. （Show rewards when depositing）
 3. Deposit and completed list: Displays deposited and completed transactions for Nervos DAO.
 
 ### Settings
@@ -146,6 +149,7 @@
 2. General
    - Version: Displays the current version and offers to check for updates.
    - Language: Select language, currently supports English and Chinese.
+   - Keeping screen awake: Off by default, on to keep the screen awake during synchronization.
 3. Network: Select the network node used by the wallet.
    - Internal Node: internal Main node. (Unable to modify and delete)
    - Light Client: Light client node with support for switching between main and test networks. (Unable to modify and delete)
