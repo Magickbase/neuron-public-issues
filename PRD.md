@@ -85,7 +85,7 @@
 3. Cell Management: Click to open Cell Management.
 4. Send&Recive: Click to make an on-chain transaction
 5. Recent activities: Display recent transaction history and details
-
+ 
 #### Send&Receive
 1. Send： Initiate on-chain transactions
    - Send to Adding an address on the CKB chain for transactions
@@ -117,15 +117,15 @@
    - Status: Categorized as locked and unlocked. (Support Sorting)
    - Description: Users can add descriptions to the cells.
    - Operation: Users can view details, lock/unlock, and consume operations on cells.
-     - View details: Pop-up window showing cells 'OutPoint.TxHash''Lock Script''Type Script''Data'and'Capacity Usage'.
+     - Cell detail: Pop-up window showing cells 'OutPoint.TxHash''Lock Script''Type Script''Data'and'Capacity Usage'.
      - Lock/Unlock: Supports lock and unlock operations on cells, but only takes effect locally. (Some types of cells are unable to perform lock/unlock operations, such as 'NervosDAO')
      - Consume: Consuming and sending the cell out in its entirety does not retain the data inside the cell.
 
->To be updated
->### History
->1. Search: Search for Tx hash, address, or date to find the transaction.
->2. Export: Export transaction history in CSV format.
->3. Transaction List
+
+### History
+1. Search: Search for Tx hash, address, or date to find the transaction.
+2. Export: Export transaction history in CSV format.
+3. Transaction List
    - Type: Display the type of transaction.
    - Assets: Displays the amount received and spent assets for the current transaction.
    - Balance: Displays the change in balance as a result of this transaction.
@@ -133,9 +133,12 @@
    - Status: Displays the on-chain status of the transaction.
    - Operation: Expand or collapse the information of the transaction.
    - View Details: Provides the ability to view transaction details in the expanded state and supports opening in an explorer.
->4. Transaction Details
+   - Amend: When the transaction type is normal, acp or sudt transfer and the transaction status is pending, the user can amend the transaction with a higher transaction fee.
+4. Transaction Details
    - Basic Information: Displays the transaction hash, block number, date, and income.
+   - Topology Graph: Displays a topological complement consisting of transaction inputs and outputs.
    - Inputs and outputs: Displays the input and output parameters of the transaction.
+   - Cell detail: Pop-up window showing cells 'OutPoint.TxHash''Lock Script''Type Script''Data'and'Capacity Usage'.
 
 ### Nervous DAO
 1. Account Info: Displays the available account balance, locked amount, and current APC.
@@ -148,7 +151,7 @@
    - Detect duplicate wallets: Support for deleting duplicate wallets when they exist.
 2. General
    - Version: Displays the current version and offers to check for updates.
-   - Language: Select language, currently supports English and Chinese.
+   - Language: Select language, currently supports English, Chinese, French and Spanish.
    - Keeping screen awake: Off by default, on to keep the screen awake during synchronization.
 3. Network: Select the network node used by the wallet.
    - Internal Node: internal Main node. (Unable to modify and delete)
